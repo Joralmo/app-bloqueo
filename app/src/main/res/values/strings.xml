@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Bloquear pantalla</string>
+    <string name="widget_white_label">Widget claro</string>
+    <string name="widget_black_label">Widget oscuro</string>
+</resources>
