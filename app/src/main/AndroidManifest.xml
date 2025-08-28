@@ -2,9 +2,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <uses-permission android:name="android.permission.USE_BIOMETRIC" />
-    <uses-permission android:name="android.permission.DISABLE_KEYGUARD" />
-
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -15,18 +12,19 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar"
         tools:targetApi="31">
+
         <activity
             android:name=".MainActivity"
             android:exported="true"
-            android:label="@string/app_name"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <receiver android:name=".MyDeviceAdminReceiver"
+
+        <receiver
+            android:name=".MyDeviceAdminReceiver"
             android:exported="true"
             android:permission="android.permission.BIND_DEVICE_ADMIN">
             <meta-data
@@ -36,9 +34,15 @@
                 <action android:name="android.app.action.DEVICE_ADMIN_ENABLED" />
             </intent-filter>
         </receiver>
-        <receiver android:name=".LockReceiver" android:exported="true" />
 
-        <receiver android:name=".LockWidgetWhite" android:exported="true" android:label="@string/widget_white_label">
+        <receiver
+            android:name=".LockReceiver"
+            android:exported="false" />
+
+        <receiver
+            android:name=".LockWidgetWhite"
+            android:exported="true"
+            android:label="@string/widget_white_label">
             <intent-filter>
                 <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
             </intent-filter>
@@ -47,7 +51,10 @@
                 android:resource="@xml/widget_white_info" />
         </receiver>
 
-        <receiver android:name=".LockWidgetBlack" android:exported="true" android:label="@string/widget_black_label">
+        <receiver
+            android:name=".LockWidgetBlack"
+            android:exported="true"
+            android:label="@string/widget_black_label">
             <intent-filter>
                 <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
             </intent-filter>
@@ -55,6 +62,6 @@
                 android:name="android.appwidget.provider"
                 android:resource="@xml/widget_black_info" />
         </receiver>
-    </application>
 
+    </application>
 </manifest>
